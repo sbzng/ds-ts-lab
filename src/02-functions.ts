@@ -53,10 +53,24 @@ function sortColleagues(
   console.log(sortColleagues(colleagues.current, (a, b) => (a.contact.extension - b.contact.extension),3));
   console.log(sortColleagues(colleagues.current, (a, b) => (a.name.length - b.name.length),1));
   console.log(sortColleagues(colleagues.current, (a, b) => (a.name.length - b.name.length))); // NEW
-  
+
 function findFriends(friends: Friend[], criterion: (f: Friend) => boolean) {
     return friends.filter(criterion).map(f => f.name);
 }
 
 console.log(findFriends(friends, (friend) => friend.name.startsWith('Pa')));
 console.log(findFriends(friends, (friend) => friend.age < 35));
+
+
+
+function addInterest(friend: Friend, interest: string) {
+    if (!friend.interests) {
+      friend.interests = [];
+    }
+
+    friend.interests.push(interest);
+
+    return friend.interests;
+  }
+  
+  console.log(addInterest(friends[1], 'Politics'));
